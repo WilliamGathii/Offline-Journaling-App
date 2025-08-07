@@ -1,0 +1,17 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed (hover effect) state -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#4B1E1E" /> <!-- Darker maroon on press -->
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- Default state -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#A07866" /> <!-- Normal maroon -->
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+</selector>

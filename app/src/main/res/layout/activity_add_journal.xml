@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".AddJournalActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/journalPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Journal Entry"
+            android:textColor="#6D4C41"
+            android:textSize="24sp"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Journal Title -->
+        <EditText
+            android:id="@+id/journalTitleInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:backgroundTint="#6D4C41"
+            android:textColor="#000000"
+            android:textColorHint="#A1887F"
+            android:fontFamily="@font/poppins"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/journalPageTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp" />
+
+        <!-- Mood label -->
+        <TextView
+            android:id="@+id/moodLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mood"
+            android:textColor="#6D4C41"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintTop_toBottomOf="@id/journalTitleInput"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <!-- Mood Spinner -->
+        <Spinner
+            android:id="@+id/moodSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            app:layout_constraintTop_toBottomOf="@id/moodLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- Journal Content -->
+        <EditText
+            android:id="@+id/journalContentInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="300dp"
+            android:hint="Write your thoughts here..."
+            android:backgroundTint="#6D4C41"
+            android:gravity="start|top"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#A1887F"
+            android:fontFamily="@font/poppins_light"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:overScrollMode="always"
+            app:layout_constraintTop_toBottomOf="@id/moodSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/dateInfoLayout"
+            android:layout_marginTop="16dp" />
+
+        <!-- Dates -->
+        <LinearLayout
+            android:id="@+id/dateInfoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/journalContentInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/dateAddedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Added: --/--/----"
+                android:textColor="#8D6E63"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_light" />
+
+            <TextView
+                android:id="@+id/dateModifiedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Modified: --/--/----"
+                android:textColor="#8D6E63"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_light" />
+        </LinearLayout>
+
+        <!-- Save -->
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_dark"
+            android:fontFamily="@font/poppins_light"
+            android:paddingStart="32dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="12dp"
+            android:text="Save Entry"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/dateInfoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp" />
+
+        <!-- TTS + STT -->
+        <LinearLayout
+            android:id="@+id/buttonRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintTop_toBottomOf="@id/saveButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/speakButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔊 Read Aloud"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_button_dark"
+                android:padding="12dp"
+                android:fontFamily="@font/poppins"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/recordButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🎙 Voice Input"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/rounded_button_dark"
+                android:padding="12dp"
+                android:fontFamily="@font/poppins"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
